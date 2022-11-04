@@ -1,2 +1,2 @@
-export * from './schools';
-export * from './players';
+export * from './countries';
+export * from './worldHeritages';

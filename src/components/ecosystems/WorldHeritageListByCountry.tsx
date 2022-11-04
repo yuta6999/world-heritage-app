@@ -2,12 +2,14 @@ import type { FC, SyntheticEvent } from 'react';
 import { Navigate, useParams, useSearchParams } from 'react-router-dom';
 import { SpinnerIcon } from '@chakra-ui/icons';
 import { Box, IconButton, Heading } from '@chakra-ui/react';
-import { playerData, countryData } from 'data';
+import { worldHeritageData, countryData } from 'data';
 import { COUNTRY_CODE } from 'domains';
 import { Helmet } from 'react-helmet-async';
-import PlayerList from 'components/organisms/PlayerList';
+import WorldHeritageList from 'components/organisms/WorldHeritageList';
 
-const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
+const WorldHeritageListByCountry: FC<{ my?: number | string }> = ({
+  my = 0,
+}) => {
   const { countryID = '' } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const isLoading = Boolean(searchParams.get('loading'));
@@ -20,8 +22,8 @@ const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
 
   if (COUNTRY_CODE.includes(countryID as never)) {
     // if (COUNTRY_CODE.includes(countryID as 'shohoku')) {
-    const players = playerData.filter(
-      (player) => player.schoolID === countryID
+    const worldHeritages = worldHeritageData.filter(
+      (worldHeritage) => worldHeritage.countryID === countryID
     );
     const country = countryData.find((country) => country.id === countryID);
 
@@ -40,8 +42,8 @@ const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
             icon={<SpinnerIcon />}
           />
         </Box>
-        <PlayerList
-          players={players}
+        <WorldHeritageList
+          worldHeritages={worldHeritages}
           // color={school?.color}
           isLoading={isLoading}
         />
@@ -52,4 +54,4 @@ const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
   return <Navigate to="/" replace />;
 };
 
-export default PlayerListBySchool;
+export default WorldHeritageListByCountry;

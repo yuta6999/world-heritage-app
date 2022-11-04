@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Box, Heading } from '@chakra-ui/react';
 import HomeButton from 'components/organisms/HomeButton';
 
-const CharactersFrame: FC = () => (
+const WorldHeritagesFrame: FC = () => (
   <Box maxW="3xl">
     <header>
       <Heading as="h1" size="xl" my={4}>
@@ -15,4 +15,4 @@ const CharactersFrame: FC = () => (
   </Box>
 );
 
-export default CharactersFrame;
+export default WorldHeritagesFrame;

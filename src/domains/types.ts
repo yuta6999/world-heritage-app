@@ -7,10 +7,13 @@ export interface Country {
   formalName?: string;
 }
 
-export interface Player {
-  id: string;
+export interface WorldHeritage {
+  id: number;
   name: string;
-  schoolID: typeof COUNTRY_CODE[number];
-  grade: number;
-  height?: number;
+  countryID: typeof COUNTRY_CODE[number];
+  year: number;
+  registrationCriteria: string;
+  summary?: string;
+  isNegativeLegacy?: boolean;
+  inDanger?: boolean;
 }

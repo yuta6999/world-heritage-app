@@ -1,6 +1,7 @@
 import type { FC } from 'react';
+import { StarIcon } from '@chakra-ui/icons';
 import {
-  Avatar,
+  // Avatar,
   Box,
   Flex,
   List,
@@ -8,16 +9,16 @@ import {
   Spinner,
   Text,
 } from '@chakra-ui/react';
-import type { Player } from 'domains';
+import type { WorldHeritage } from 'domains';
 
 type Props = {
-  players: Player[];
+  worldHeritages: WorldHeritage[];
   color?: string;
   isLoading?: boolean;
 };
 
-const PlayerList: FC<Props> = ({
-  players = [],
+const WorldHeritageList: FC<Props> = ({
+  worldHeritages = [],
   color = 'teal.500',
   isLoading = false,
 }) => (
@@ -28,16 +29,16 @@ const PlayerList: FC<Props> = ({
       </Flex>
     ) : (
       <List my={10}>
-        {players.map((player) => (
-          <ListItem key={player.id} m={6}>
+        {worldHeritages.map((worldHeritage) => (
+          <ListItem key={worldHeritage.id} m={6}>
             <Flex>
-              <Avatar size="md" bg={color} />
+              {/* <Avatar size="md" bg={color} /> */}
+              <StarIcon />
               <Box ml={3}>
-                <Text>{player.name}</Text>
-                <Text as="span">{player.grade}年生</Text>
+                <Text>{worldHeritage.name}</Text>
+                {/* <Text as="span">{worldHeritage.grade}年生</Text> */}
                 <Text as="span" ml={2}>
-                  {player.height ?? '???'}
-                  cm
+                  {worldHeritage.summary ?? ''}
                 </Text>
               </Box>
             </Flex>
@@ -48,4 +49,4 @@ const PlayerList: FC<Props> = ({
   </>
 );
 
-export default PlayerList;
+export default WorldHeritageList;
