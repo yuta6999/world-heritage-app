@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
-import { schoolData } from 'data';
+import { countryData } from 'data';
 import { Helmet } from 'react-helmet-async';
 import CharacterIndex from 'components/organisms/CharacterIndex';
 import StoryOutline from 'components/organisms/StoryOutline';
@@ -16,7 +16,7 @@ const Home: FC = () => (
       {title}
     </Heading>
     <StoryOutline my={10} />
-    <CharacterIndex schools={schoolData} my={16} />
+    <CharacterIndex countries={countryData} my={16} />
   </Box>
 );
 

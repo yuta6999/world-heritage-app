@@ -1,15 +1,16 @@
-import { SCHOOL_CODE } from './constants';
+import { COUNTRY_CODE } from './constants';
 
-export interface School {
-  id: typeof SCHOOL_CODE[number];
+export interface Country {
+  id: typeof COUNTRY_CODE[number];
+  region: string;
   name: string;
-  color: string;
+  formalName?: string;
 }
 
 export interface Player {
   id: string;
   name: string;
-  schoolID: typeof SCHOOL_CODE[number];
+  schoolID: typeof COUNTRY_CODE[number];
   grade: number;
   height?: number;
 }

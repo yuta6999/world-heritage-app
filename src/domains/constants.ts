@@ -1,1 +1,1 @@
-export const SCHOOL_CODE = ['shohoku', 'ryonan', 'kainandai'] as const;
+export const COUNTRY_CODE = ['jpn', 'esp', 'egy'] as const;

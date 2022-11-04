@@ -1,19 +1,21 @@
-import { School } from 'domains';
+import { Country } from 'domains';
 
-export const schoolData: School[] = [
+export const countryData: Country[] = [
   {
-    id: 'shohoku',
+    id: 'jpn',
+    region: 'アジア・太平洋',
     name: '日本',
-    color: 'red.500',
+    formalName: '日本国',
   },
   {
-    id: 'ryonan',
+    id: 'esp',
+    region: 'ヨーロッパ・北米',
     name: 'スペイン',
-    color: 'purple.600',
   },
   {
-    id: 'kainandai',
+    id: 'egy',
+    region: 'アラブ諸国',
     name: 'エジプト',
-    color: 'blue.800',
+    formalName: 'エジプト・アラブ共和国',
   },
 ];

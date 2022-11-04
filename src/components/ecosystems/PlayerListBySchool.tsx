@@ -2,13 +2,13 @@ import type { FC, SyntheticEvent } from 'react';
 import { Navigate, useParams, useSearchParams } from 'react-router-dom';
 import { SpinnerIcon } from '@chakra-ui/icons';
 import { Box, IconButton, Heading } from '@chakra-ui/react';
-import { playerData, schoolData } from 'data';
-import { SCHOOL_CODE } from 'domains';
+import { playerData, countryData } from 'data';
+import { COUNTRY_CODE } from 'domains';
 import { Helmet } from 'react-helmet-async';
 import PlayerList from 'components/organisms/PlayerList';
 
 const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
-  const { schoolID = '' } = useParams();
+  const { countryID = '' } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const isLoading = Boolean(searchParams.get('loading'));
 
@@ -18,18 +18,20 @@ const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
     setSearchParams(`loading=${loading}`);
   };
 
-  if (SCHOOL_CODE.includes(schoolID as never)) {
-    // if (SCHOOL_CODE.includes(schoolID as 'shohoku')) {
-    const players = playerData.filter((player) => player.schoolID === schoolID);
-    const school = schoolData.find((school) => school.id === schoolID);
+  if (COUNTRY_CODE.includes(countryID as never)) {
+    // if (COUNTRY_CODE.includes(countryID as 'shohoku')) {
+    const players = playerData.filter(
+      (player) => player.schoolID === countryID
+    );
+    const country = countryData.find((country) => country.id === countryID);
 
     return (
       <Box my={my} w="2xl">
         <Helmet>
-          <title>登場人物｜{school?.name}｜SLAM DUNK</title>
+          <title>登場人物｜{country?.name}｜SLAM DUNK</title>
         </Helmet>
         <Heading as="h2" size="lg">
-          {school?.name}
+          {country?.name}
         </Heading>
         <Box textAlign="right">
           <IconButton
@@ -40,7 +42,7 @@ const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
         </Box>
         <PlayerList
           players={players}
-          color={school?.color}
+          // color={school?.color}
           isLoading={isLoading}
         />
       </Box>
