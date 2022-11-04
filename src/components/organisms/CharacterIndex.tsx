@@ -8,16 +8,16 @@ type Props = { schools: School[]; my?: number | string };
 const CharacterIndex: FC<Props> = ({ schools, my = 0 }) => (
   <Box my={my}>
     <Heading as="h2" size="lg">
-      登場人物
+      各国の世界遺産
     </Heading>
     <UnorderedList mt={8} spacing={2}>
       {schools.map((school) => (
         <ListItem key={school.id}>
-          <Link to={`/characters/${school.id}`}>{school.name}の選手</Link>
+          <Link to={`/characters/${school.id}`}>{school.name}の世界遺産</Link>
         </ListItem>
       ))}
       <ListItem>
-        <Link to={`/characters`}>すべての選手（身長順）</Link>
+        <Link to={`/characters`}>すべての世界遺産（登録順）</Link>
       </ListItem>
     </UnorderedList>
   </Box>

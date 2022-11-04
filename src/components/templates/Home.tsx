@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import CharacterIndex from 'components/organisms/CharacterIndex';
 import StoryOutline from 'components/organisms/StoryOutline';
 
-const title = 'SLAM DUNK';
+const title = '世界遺産';
 
 const Home: FC = () => (
   <Box maxW="3xl">

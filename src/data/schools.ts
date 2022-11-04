@@ -3,17 +3,17 @@ import { School } from 'domains';
 export const schoolData: School[] = [
   {
     id: 'shohoku',
-    name: '湘北高校',
+    name: '日本',
     color: 'red.500',
   },
   {
     id: 'ryonan',
-    name: '陵南高校',
+    name: 'スペイン',
     color: 'purple.600',
   },
   {
     id: 'kainandai',
-    name: '海南大附属高',
+    name: 'エジプト',
     color: 'blue.800',
   },
 ];
