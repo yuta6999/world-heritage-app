@@ -18,10 +18,10 @@ const BearCounter: FC = () => {
   const bears = useBearStore((state) => state.bears);
 
   return (
-    <div>
+    <div className="BearCounter">
       {[...Array(bears).keys()].map((n) => (
         <span key={n} role="img" aria-label="bear">
-          {' '}
+          🐻
         </span>
       ))}
     </div>
@@ -36,6 +36,7 @@ const CountButtons: FC = () => {
     <div>
       <button onClick={increaseBear}>One Up</button>
       <button onClick={removeAllBears}>Clear</button>
+      <div></div>
     </div>
   );
 };
