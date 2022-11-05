@@ -2,14 +2,13 @@ import type { FC } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import { worldHeritageData } from 'data';
 import { Helmet } from 'react-helmet-async';
+import { useStore } from 'stores/Store';
 import WorldHeritageList from 'components/organisms/WorldHeritageList';
 
 const WorldHeritageListByFavorite: FC<{ my?: number | string }> = ({
   my = 0,
 }) => {
-  const favoriteList = JSON.parse(
-    localStorage.getItem('world_heritage_app') as string
-  ) as number[];
+  const favoriteList = useStore((state) => state.favoriteList);
 
   const worldHeritages = worldHeritageData.filter((worldHeritage) =>
     favoriteList.includes(worldHeritage.id)

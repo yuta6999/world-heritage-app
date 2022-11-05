@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import { Box, Flex, List, ListItem, Text } from '@chakra-ui/react';
 import type { WorldHeritage } from 'domains';
-import { useStore } from 'stores/Store';
 import FavoriteCheckBox from 'components/organisms/FavoriteCheckBox';
 
 type Props = {
@@ -11,8 +10,6 @@ type Props = {
 };
 
 const WorldHeritageList: FC<Props> = ({ worldHeritages = [] }) => {
-  const favoriteList = useStore((state) => state.favoriteList);
-
   return (
     <List my={10}>
       {worldHeritages.map((worldHeritage) => (
@@ -30,10 +27,7 @@ const WorldHeritageList: FC<Props> = ({ worldHeritages = [] }) => {
                 国：{worldHeritage.countryID}
               </Text>
             </Box>
-            <FavoriteCheckBox
-              id={worldHeritage.id}
-              isFavorite={favoriteList.includes(worldHeritage.id)}
-            />
+            <FavoriteCheckBox id={worldHeritage.id} />
           </Flex>
         </ListItem>
       ))}

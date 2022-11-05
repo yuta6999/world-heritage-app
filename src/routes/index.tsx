@@ -4,6 +4,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import AllWorldHeritages from 'components/ecosystems/AllWorldHeritages';
 import WorldHeritageListByCountry from 'components/ecosystems/WorldHeritageListByCountry';
 import WorldHeritageListByFavorite from 'components/ecosystems/WorldHeritageListByFavorite';
+import BearCounter from 'components/organisms/BearCounter';
 import Home from 'components/templates/Home';
 import WorldHeritagesFrame from 'components/templates/WorldHeritagesFrame';
 
@@ -24,6 +25,7 @@ const IndexRoutes: FC = () => {
           path="favorite"
           element={<WorldHeritageListByFavorite my={12} />}
         />
+        <Route path="bear" element={<BearCounter />} />
         <Route
           path=":countryID"
           element={<WorldHeritageListByCountry my={12} />}

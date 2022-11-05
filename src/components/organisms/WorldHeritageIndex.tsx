@@ -24,6 +24,9 @@ const WorldHeritageIndex: FC<Props> = ({ countries, my = 0 }) => (
           お気に入りの世界遺産（登録順）
         </Link>
       </ListItem>
+      <ListItem>
+        <Link to={`/worldHeritages/bear`}>🐻</Link>
+      </ListItem>
     </UnorderedList>
   </Box>
 );
