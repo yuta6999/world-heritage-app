@@ -7,16 +7,12 @@ import WorldHeritageList from 'components/organisms/WorldHeritageList';
 const WorldHeritageListByFavorite: FC<{ my?: number | string }> = ({
   my = 0,
 }) => {
-  const favoriteList: number[] = [744, 745];
-  localStorage.setItem('world_heritage_app', JSON.stringify(favoriteList));
-  const values = JSON.parse(
+  const favoriteList = JSON.parse(
     localStorage.getItem('world_heritage_app') as string
   ) as number[];
 
-  console.log(values);
-
   const worldHeritages = worldHeritageData.filter((worldHeritage) =>
-    values.includes(worldHeritage.id)
+    favoriteList.includes(worldHeritage.id)
   );
 
   return (
