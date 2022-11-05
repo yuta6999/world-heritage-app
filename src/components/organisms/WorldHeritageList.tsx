@@ -49,6 +49,9 @@ const WorldHeritageList: FC<Props> = ({
                 <Text as="span" ml={2}>
                   国：{worldHeritage.countryID}
                 </Text>
+                <Text as="span" ml={2}>
+                  ID：{worldHeritage.id}
+                </Text>
               </Box>
               <FavoriteCheckBox
                 id={worldHeritage.id}
