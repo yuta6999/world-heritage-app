@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import type { FC } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import AllPlayers from 'components/ecosystems/AllWorldHeritages';
+import AllWorldHeritages from 'components/ecosystems/AllWorldHeritages';
 import WorldHeritageListByCountry from 'components/ecosystems/WorldHeritageListByCountry';
+import WorldHeritageListByFavorite from 'components/ecosystems/WorldHeritageListByFavorite';
 import Home from 'components/templates/Home';
 import WorldHeritagesFrame from 'components/templates/WorldHeritagesFrame';
 
@@ -18,7 +19,11 @@ const IndexRoutes: FC = () => {
   return (
     <Routes>
       <Route path="worldHeritages" element={<WorldHeritagesFrame />}>
-        <Route path="" element={<AllPlayers my={12} />} />
+        <Route path="" element={<AllWorldHeritages my={12} />} />
+        <Route
+          path="favorite"
+          element={<WorldHeritageListByFavorite my={12} />}
+        />
         <Route
           path=":countryID"
           element={<WorldHeritageListByCountry my={12} />}
