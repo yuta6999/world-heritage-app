@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-// import { StarIcon } from '@chakra-ui/icons';
 import {
   // Avatar,
   Box,
@@ -10,6 +9,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import type { WorldHeritage } from 'domains';
+import FavoriteCheckBox from 'components/organisms/FavoriteCheckBox';
 
 type Props = {
   worldHeritages: WorldHeritage[];
@@ -46,6 +46,7 @@ const WorldHeritageList: FC<Props> = ({
                   国：{worldHeritage.countryID}
                 </Text>
               </Box>
+              <FavoriteCheckBox id={worldHeritage.id} />
             </Flex>
           </ListItem>
         ))}
