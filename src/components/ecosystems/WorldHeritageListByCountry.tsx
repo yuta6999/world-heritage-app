@@ -30,7 +30,7 @@ const WorldHeritageListByCountry: FC<{ my?: number | string }> = ({
     return (
       <Box my={my} w="2xl">
         <Helmet>
-          <title>登場人物｜{country?.name}｜SLAM DUNK</title>
+          <title>世界遺産一覧｜{country?.name}｜世界遺産</title>
         </Helmet>
         <Heading as="h2" size="lg">
           {country?.name}

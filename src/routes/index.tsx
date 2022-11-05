@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import type { FC } from 'react';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import AllPlayers from 'components/ecosystems/AllPlayers';
+import AllPlayers from 'components/ecosystems/AllWorldHeritages';
 import WorldHeritageListByCountry from 'components/ecosystems/WorldHeritageListByCountry';
 import Home from 'components/templates/Home';
 import WorldHeritagesFrame from 'components/templates/WorldHeritagesFrame';

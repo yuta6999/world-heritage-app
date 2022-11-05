@@ -10,7 +10,7 @@ const SORT = {
 };
 type Props = { sortType?: keyof typeof SORT; my?: number | string };
 
-const AllPlayers: FC<Props> = ({ sortType = 'year', my = 0 }) => {
+const AllWorldHeritages: FC<Props> = ({ sortType = 'year', my = 0 }) => {
   const worldHeritages = worldHeritageData.sort((p1, p2) =>
     Number(p1[sortType]) < Number(p2[sortType]) ? -1 : 1
   );
@@ -21,11 +21,11 @@ const AllPlayers: FC<Props> = ({ sortType = 'year', my = 0 }) => {
         <title>登場人物｜{SORT[sortType]}</title>
       </Helmet>
       <Heading as="h2" size="lg">
-        すべての選手｜{SORT[sortType]}
+        すべての世界遺産｜{SORT[sortType]}
       </Heading>
       <WorldHeritageList worldHeritages={worldHeritages} />
     </Box>
   );
 };
 
-export default AllPlayers;
+export default AllWorldHeritages;

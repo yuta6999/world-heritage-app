@@ -7,7 +7,7 @@ const WorldHeritagesFrame: FC = () => (
   <Box maxW="3xl">
     <header>
       <Heading as="h1" size="xl" my={4}>
-        『SLAM DUNK』登場人物
+        世界遺産
       </Heading>
     </header>
     <Outlet />
