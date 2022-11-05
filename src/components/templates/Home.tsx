@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import { countryData } from 'data';
 import { Helmet } from 'react-helmet-async';
-import CharacterIndex from 'components/organisms/CharacterIndex';
-import StoryOutline from 'components/organisms/StoryOutline';
+import StoryOutline from 'components/organisms/AppOutline';
+import CharacterIndex from 'components/organisms/WorldHeritageIndex';
 
 const title = '世界遺産';
 

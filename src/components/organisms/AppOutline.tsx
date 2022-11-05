@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Box, Heading, Text } from '@chakra-ui/react';
 
-const StoryOutline: FC<{ my?: number | string }> = ({ my = 0 }) => (
+const Outline: FC<{ my?: number | string }> = ({ my = 0 }) => (
   <Box my={my}>
     <Heading as="h2" size="lg">
       概要
@@ -12,4 +12,4 @@ const StoryOutline: FC<{ my?: number | string }> = ({ my = 0 }) => (
   </Box>
 );
 
-export default StoryOutline;
+export default Outline;

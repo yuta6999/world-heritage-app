@@ -17,7 +17,7 @@ const IndexRoutes: FC = () => {
 
   return (
     <Routes>
-      <Route path="characters" element={<WorldHeritagesFrame />}>
+      <Route path="worldHeritages" element={<WorldHeritagesFrame />}>
         <Route path="" element={<AllPlayers my={12} />} />
         <Route
           path=":countryID"
