@@ -1,24 +1,23 @@
-import type { FC, ChangeEvent } from 'react';
-import { useState } from 'react';
+import type { FC } from 'react';
+// import { useState } from 'react';
 import { Checkbox } from '@chakra-ui/react';
 
 type Props = {
   id: number;
+  isFavorite: boolean;
 };
 
-const favoriteList = JSON.parse(
-  localStorage.getItem('world_heritage_app') as string
-) as number[];
+// const favoriteList = JSON.parse(
+//   localStorage.getItem('world_heritage_app') as string
+// ) as number[];
 
-const FavoriteCheckBox: FC<Props> = ({ id = 0 }) => {
-  const [isFavorite, setIsFavorite] = useState<boolean>(
-    favoriteList.includes(id)
-  );
+const FavoriteCheckBox: FC<Props> = ({ id, isFavorite }) => {
+  // const [isFavorite, setIsFavorite] = useState<boolean>(
+  //   favoriteList.includes(id)
+  // );
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(id);
-    console.log(event.target.checked);
-    setIsFavorite(!isFavorite);
+  const handleChange = () => {
+    // setIsFavorite(!isFavorite);
 
     if (!isFavorite) {
       const favoriteList = JSON.parse(

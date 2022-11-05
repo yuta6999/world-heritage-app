@@ -17,6 +17,10 @@ type Props = {
   isLoading?: boolean;
 };
 
+const favoriteList = JSON.parse(
+  localStorage.getItem('world_heritage_app') as string
+) as number[];
+
 const WorldHeritageList: FC<Props> = ({
   worldHeritages = [],
   color = 'teal.500',
@@ -46,7 +50,10 @@ const WorldHeritageList: FC<Props> = ({
                   国：{worldHeritage.countryID}
                 </Text>
               </Box>
-              <FavoriteCheckBox id={worldHeritage.id} />
+              <FavoriteCheckBox
+                id={worldHeritage.id}
+                isFavorite={favoriteList.includes(worldHeritage.id)}
+              />
             </Flex>
           </ListItem>
         ))}
