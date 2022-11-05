@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { StarIcon } from '@chakra-ui/icons';
+// import { StarIcon } from '@chakra-ui/icons';
 import {
   // Avatar,
   Box,
@@ -33,12 +33,17 @@ const WorldHeritageList: FC<Props> = ({
           <ListItem key={worldHeritage.id} m={6}>
             <Flex>
               {/* <Avatar size="md" bg={color} /> */}
-              <StarIcon />
+              {/* <StarIcon /> */}
               <Box ml={3}>
-                <Text>{worldHeritage.name}</Text>
-                {/* <Text as="span">{worldHeritage.grade}年生</Text> */}
+                <Text>・{worldHeritage.name}</Text>
                 <Text as="span" ml={2}>
-                  {worldHeritage.summary ?? ''}
+                  登録年：{worldHeritage.year}
+                </Text>
+                <Text as="span" ml={2}>
+                  登録基準：{worldHeritage.registrationCriteria}
+                </Text>
+                <Text as="span" ml={2}>
+                  国：{worldHeritage.countryID}
                 </Text>
               </Box>
             </Flex>
