@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 // import { useState } from 'react';
 import { Checkbox } from '@chakra-ui/react';
+import { useStore } from 'stores/Store';
 
 type Props = {
   id: number;
@@ -16,25 +17,17 @@ const FavoriteCheckBox: FC<Props> = ({ id, isFavorite }) => {
   //   favoriteList.includes(id)
   // );
 
+  // const favoriteList = useStore((state) => state.favoriteList);
+  const addFavorite = useStore((state) => state.addFavorite);
+  const removeFavorite = useStore((state) => state.removeFavorite);
+
   const handleChange = () => {
     // setIsFavorite(!isFavorite);
 
     if (!isFavorite) {
-      const favoriteList = JSON.parse(
-        localStorage.getItem('world_heritage_app') as string
-      ) as number[];
-
-      favoriteList.push(id);
-
-      localStorage.setItem('world_heritage_app', JSON.stringify(favoriteList));
+      addFavorite(id);
     } else {
-      let favoriteList = JSON.parse(
-        localStorage.getItem('world_heritage_app') as string
-      ) as number[];
-
-      favoriteList = favoriteList.filter((item) => item !== id);
-
-      localStorage.setItem('world_heritage_app', JSON.stringify(favoriteList));
+      removeFavorite(id);
     }
   };
 
