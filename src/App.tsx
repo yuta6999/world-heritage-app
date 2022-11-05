@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { Button } from '@chakra-ui/react';
 import create from 'zustand';
 import Providers from './Providers';
 import IndexRoutes from './routes';
@@ -35,9 +36,10 @@ const CountButtons: FC = () => {
 
   return (
     <div>
-      <button onClick={increaseBear}>One Up</button>
-      <button onClick={removeAllBears}>Clear</button>
-      <div></div>
+      <Button onClick={increaseBear}>One Up</Button>
+      <Button ml={2} onClick={removeAllBears}>
+        Clear
+      </Button>
     </div>
   );
 };

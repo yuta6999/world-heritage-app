@@ -1,4 +1,5 @@
 import create from 'zustand';
+import { LOCAL_STORAGE_KEY } from 'domains/constants';
 
 interface FavoriteState {
   favoriteList: number[];
@@ -6,15 +7,19 @@ interface FavoriteState {
   removeFavorite: (id: number) => void;
 }
 
+if (localStorage.getItem(LOCAL_STORAGE_KEY) == null) {
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify([]));
+}
+
 export const useStore = create<FavoriteState>((set) => ({
   favoriteList: JSON.parse(
-    localStorage.getItem('world_heritage_app') as string
+    localStorage.getItem(LOCAL_STORAGE_KEY) as string
   ) as number[],
   addFavorite: (id: number) =>
     set((state) => {
       state.favoriteList.push(id);
       localStorage.setItem(
-        'world_heritage_app',
+        LOCAL_STORAGE_KEY,
         JSON.stringify(state.favoriteList)
       );
 
@@ -26,7 +31,7 @@ export const useStore = create<FavoriteState>((set) => ({
         (favorite) => favorite !== id
       );
       localStorage.setItem(
-        'world_heritage_app',
+        LOCAL_STORAGE_KEY,
         JSON.stringify(state.favoriteList)
       );
 
