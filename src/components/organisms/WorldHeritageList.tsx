@@ -19,7 +19,7 @@ const WorldHeritageList: FC<Props> = ({ worldHeritages = [] }) => {
             <Box ml={3}>
               <Text>
                 ・
-                <Link to={`/worldHeritages/detail/${worldHeritage.id}`}>
+                <Link to={`/detail/${worldHeritage.id}`}>
                   {worldHeritage.name}
                 </Link>
               </Text>

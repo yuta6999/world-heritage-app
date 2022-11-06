@@ -21,24 +21,22 @@ const IndexRoutes: FC = () => {
   return (
     <Routes>
       <Route path="worldHeritages" element={<WorldHeritagesFrame />}>
-        <Route path="list" element={<WorldHeritagesFrame />}>
-          <Route path="" element={<AllWorldHeritages my={12} />} />
-          <Route
-            path="favorite"
-            element={<WorldHeritageListByFavorite my={12} />}
-          />
-          <Route path="bear" element={<BearCounter />} />
-          <Route
-            path=":countryID"
-            element={<WorldHeritageListByCountry my={12} />}
-          />
-        </Route>
-        <Route path="detail" element={<WorldHeritagesFrame />}>
-          <Route path=":id" element={<WorldHeritageDetail my={12} />} />
-        </Route>
+        <Route path="" element={<AllWorldHeritages my={12} />} />
+        <Route
+          path="favorite"
+          element={<WorldHeritageListByFavorite my={12} />}
+        />
+        <Route
+          path=":countryID"
+          element={<WorldHeritageListByCountry my={12} />}
+        />
+      </Route>
+      <Route path="detail" element={<WorldHeritagesFrame />}>
+        <Route path=":id" element={<WorldHeritageDetail my={12} />} />
       </Route>
       <Route path="/" element={<Home />} />
       <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="bear" element={<BearCounter />} />
     </Routes>
   );
 };
