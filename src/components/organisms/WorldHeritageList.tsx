@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { Box, Flex, List, ListItem, Text } from '@chakra-ui/react';
 import type { WorldHeritage } from 'domains';
 import FavoriteCheckBox from 'components/organisms/FavoriteCheckBox';
@@ -16,7 +17,12 @@ const WorldHeritageList: FC<Props> = ({ worldHeritages = [] }) => {
         <ListItem key={worldHeritage.id} m={6}>
           <Flex>
             <Box ml={3}>
-              <Text>・{worldHeritage.name}</Text>
+              <Text>
+                ・
+                <Link to={`/worldHeritages/detail/${worldHeritage.id}`}>
+                  {worldHeritage.name}
+                </Link>
+              </Text>
               <Text as="span" ml={2}>
                 登録年：{worldHeritage.year}
               </Text>

@@ -13,14 +13,16 @@ const WorldHeritageIndex: FC<Props> = ({ countries, my = 0 }) => (
     <UnorderedList mt={8} spacing={2}>
       {countries.map((aaa) => (
         <ListItem key={aaa.id}>
-          <Link to={`/worldHeritages/${aaa.id}`}>{aaa.name}の世界遺産</Link>
+          <Link to={`/worldHeritages/list/${aaa.id}`}>
+            {aaa.name}の世界遺産
+          </Link>
         </ListItem>
       ))}
       <ListItem>
-        <Link to={`/worldHeritages`}>すべての世界遺産（登録順）</Link>
+        <Link to={`/worldHeritages/list`}>すべての世界遺産（登録順）</Link>
       </ListItem>
       <ListItem>
-        <Link to={`/worldHeritages/favorite`}>
+        <Link to={`/worldHeritages/list/favorite`}>
           お気に入りの世界遺産（登録順）
         </Link>
       </ListItem>
