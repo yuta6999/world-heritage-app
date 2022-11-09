@@ -17,7 +17,7 @@
   "parserOptions": {
     "ecmaVersion": "latest",
     "tsconfigRootDir": ".",
-    "project": ["./tsconfig.json", "./firebase.js"],
+    "project": ["./tsconfig.json"],
     "sourceType": "module"
   },
   "plugins": [

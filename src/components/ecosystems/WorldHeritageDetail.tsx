@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Heading, Text } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet-async';
+import FirebaseTest from './FirebaseTest';
 
 const WorldHeritageDetail: FC<{ my?: number | string }> = ({ my = 0 }) => {
   const worldHeritageID = useParams().id;
@@ -15,6 +16,7 @@ const WorldHeritageDetail: FC<{ my?: number | string }> = ({ my = 0 }) => {
         ID:{worldHeritageID} の詳細
       </Heading>
       <Text>準備中...</Text>
+      <FirebaseTest></FirebaseTest>
     </Box>
   );
 };
