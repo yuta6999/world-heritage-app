@@ -10,18 +10,19 @@ const FirebaseTest: FC = () => {
 
   return (
     <div>
-      <p>
-        {error && <strong>Error: {JSON.stringify(error)}</strong>}
-        {isLoading && <span>Collection: Loading...</span>}
-        {snapshot && (
-          <span>
-            Collection:{' '}
-            {snapshot.docs.map((doc) => (
-              <Text key={doc.id}>{JSON.stringify(doc.data())}, </Text>
-            ))}
-          </span>
-        )}
-      </p>
+      {error && <strong>Error: {JSON.stringify(error)}</strong>}
+      {isLoading && <span>Collection: Loading...</span>}
+      {snapshot && (
+        <span>
+          Collection:{' '}
+          {snapshot.docs.map((doc) => (
+            //   <Text key={doc.id}>{JSON.stringify(doc.data())}, </Text>
+            <Text as="span" key={doc.id}>
+              {doc.data().name}
+            </Text>
+          ))}
+        </span>
+      )}
     </div>
   );
 };
