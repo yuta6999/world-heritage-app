@@ -18,7 +18,7 @@ const AllWorldHeritages: FC<Props> = ({ sortType = 'year', my = 0 }) => {
   return (
     <Box my={my} w="2xl">
       <Helmet>
-        <title>登場人物｜{SORT[sortType]}</title>
+        <title>すべての世界遺産｜{SORT[sortType]}</title>
       </Helmet>
       <Heading as="h2" size="lg">
         すべての世界遺産｜{SORT[sortType]}
