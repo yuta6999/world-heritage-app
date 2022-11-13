@@ -23,6 +23,7 @@ const WorldHeritageList: FC<Props> = ({ worldHeritages = [] }) => {
                   {worldHeritage.name}
                 </Link>
               </Text>
+              <Text>{worldHeritage.summary}</Text>
               <Text as="span" ml={2}>
                 登録年：{worldHeritage.year}
               </Text>
