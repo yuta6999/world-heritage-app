@@ -1,32 +1,25 @@
-import type { FC } from 'react';
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+import { FC, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Text } from '@chakra-ui/react';
 import db from 'firebase';
-import { collection } from 'firebase/firestore';
-import { useCollection } from 'react-firebase-hooks/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 
 const FirebaseTest: FC = () => {
-  const [snapshot, isLoading, error] = useCollection(collection(db, 'test'));
-  const worldHeritageID = useParams().id;
+  const worldHeritageID: string = useParams().id as string;
+  const docRef = doc(db, 'worldHeritages', worldHeritageID);
+  const [name, setName] = useState('Now loading...');
+  getDoc(docRef).then((documentSnapshot) => {
+    if (documentSnapshot.exists()) {
+      setName(documentSnapshot.data().name);
+    } else {
+      setName('nothing...');
+    }
+  });
 
-  return (
-    <div>
-      {error && <strong>Error: {JSON.stringify(error)}</strong>}
-      {isLoading && <span>Collection: Loading...</span>}
-      {snapshot && (
-        <span>
-          {/* Collection:{' '} */}
-          {snapshot.docs.map((doc) => (
-            //   <Text key={doc.id}>{JSON.stringify(doc.data())}, </Text>
-            <Text key={doc.id}>
-              {worldHeritageID === doc.id ? '★' : ''}
-              ID:{doc.id} {doc.data().name} {JSON.stringify(doc.data())}
-            </Text>
-          ))}
-        </span>
-      )}
-    </div>
-  );
+  return <Text>{name}</Text>;
 };
 
 export default FirebaseTest;
